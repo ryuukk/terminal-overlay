@@ -4,6 +4,8 @@
 # COMPATIBILITY
 - Linux (x11): Yes
 - Linux (wayland): no clue, i need to find alternatives for the dependencies
+- macOS: me no have this
+- windows: me no use this
 
 
 # DEPENDENCIES
