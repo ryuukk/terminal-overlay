@@ -113,9 +113,11 @@ class TerminalOverlayToggleCommand(sublime_plugin.WindowCommand):
         global G_WID_ST
         global G_WID_TERM
 
+        # skip alt-tab
+        a = subprocess.Popen(['wmctrl', '-ir', str(G_WID_TERM), '-b', 'add,skip_pager', str(G_WID_ST)], shell=False)
         # make it modal
         if G_NO_TASKBAR_ICON == True:
-            a = subprocess.Popen(['wmctrl', '-ir', str(G_WID_TERM), '-b', 'add,skip_pager,skip_taskbar', str(G_WID_ST)], shell=False)
+            a = subprocess.Popen(['wmctrl', '-ir', str(G_WID_TERM), '-b', 'add,skip_taskbar', str(G_WID_ST)], shell=False)
 
 def get_window_id(pid: int) -> int:
     p = subprocess.Popen(f"xdotool search --pid {pid}", stdout=subprocess.PIPE, shell=True)
